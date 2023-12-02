@@ -3,14 +3,14 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"log"
 	"os"
 )
 
-func parseFile(filename string) ([]string, error) {
+func parseFile(filename string) []string {
 	file, err := os.Open(filename)
 	if err != nil {
-		return nil, err
+		fmt.Printf("Could not open %q: %q\n", filename, err)
+		os.Exit(1)
 	}
 	defer file.Close()
 
@@ -20,14 +20,11 @@ func parseFile(filename string) ([]string, error) {
 		t := scanner.Text()
 		arr = append(arr, t)
 	}
-	return arr, nil
+	return arr
 }
 
 func parseInput(filename string) []int {
-	input, err := parseFile(filename)
-	if err != nil {
-		log.Fatalf("Could not open %q: %q\n", filename, err)
-	}
+	input := parseFile(filename)
 
 	type line struct {
 		first  int
@@ -41,7 +38,8 @@ func parseInput(filename string) []int {
 		var l line
 		_, err := fmt.Sscanf(v, "%d-%d %c: %s", &l.first, &l.second, &l.letter, &l.text)
 		if err != nil {
-			log.Fatalln(err)
+			fmt.Printf("%s\n", err)
+			os.Exit(1)
 		}
 		arr = append(arr, l.first)
 	}
