@@ -24,7 +24,7 @@ func parseFile(filename string) []string {
 }
 
 func parseInput(filename string) []int {
-	input := parseFile(filename)
+	in := parseFile(filename)
 
 	type line struct {
 		first  int
@@ -34,7 +34,7 @@ func parseInput(filename string) []int {
 	}
 
 	var arr []int
-	for _, v := range input {
+	for _, v := range in {
 		var l line
 		_, err := fmt.Sscanf(v, "%d-%d %c: %s", &l.first, &l.second, &l.letter, &l.text)
 		if err != nil {
@@ -47,13 +47,13 @@ func parseInput(filename string) []int {
 }
 
 func part1(filename string) int {
-	input := parseInput(filename)
-	fmt.Println(input)
-	var answer int
-	return answer
+	in := parseInput(filename)
+	fmt.Println(in)
+	var ans int
+	return ans
 }
 
 func part2(filename string) int {
-	var answer int
-	return answer
+	var ans int
+	return ans
 }
