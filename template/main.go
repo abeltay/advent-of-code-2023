@@ -9,7 +9,7 @@ import (
 func parseFile(filename string) []string {
 	file, err := os.Open(filename)
 	if err != nil {
-		fmt.Printf("Could not open %q: %q\n", filename, err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 	defer file.Close()
@@ -38,7 +38,7 @@ func parseInput(filename string) []int {
 		var l line
 		_, err := fmt.Sscanf(v, "%d-%d %c: %s", &l.first, &l.second, &l.letter, &l.text)
 		if err != nil {
-			fmt.Printf("%s\n", err)
+			fmt.Println(err)
 			os.Exit(1)
 		}
 		arr = append(arr, l.first)
