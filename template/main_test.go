@@ -6,7 +6,7 @@ import (
 )
 
 func TestParts(t *testing.T) {
-	testFile := "testdata/input_test.txt"
+	testFile := "testdata/test.txt"
 	got := part1(testFile)
 	want := 0
 	if got != want {
