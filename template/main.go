@@ -23,20 +23,19 @@ func parseFile(filename string) []string {
 	return arr
 }
 
+type line struct {
+	first  int
+	letter byte
+	text   string
+}
+
 func parseInput(filename string) []int {
 	in := parseFile(filename)
-
-	type line struct {
-		first  int
-		second int
-		letter byte
-		text   string
-	}
 
 	var arr []int
 	for _, v := range in {
 		var l line
-		_, err := fmt.Sscanf(v, "%d-%d %c: %s", &l.first, &l.second, &l.letter, &l.text)
+		_, err := fmt.Sscanf(v, "%d %c: %s", &l.first, &l.letter, &l.text)
 		if err != nil {
 			fmt.Println(err)
 			os.Exit(1)
@@ -54,6 +53,5 @@ func part1(filename string) int {
 }
 
 func part2(filename string) int {
-	var ans int
-	return ans
+	return 0
 }
