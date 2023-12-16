@@ -23,31 +23,42 @@ func parseFile(filename string) []string {
 	return arr
 }
 
+/*
 type line struct {
 	first  int
 	letter byte
 	text   string
 }
+*/
 
-func parseInput(filename string) []int {
+func parseInput(filename string) [][]byte {
 	in := parseFile(filename)
 
-	var arr []int
-	for _, v := range in {
-		var l line
-		_, err := fmt.Sscanf(v, "%d %c: %s", &l.first, &l.letter, &l.text)
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-		arr = append(arr, l.first)
+	var arr [][]byte
+	for _, row := range in {
+		arr = append(arr, []byte(row))
+		/*
+			var l line
+			_, err := fmt.Sscanf(row, "%d %c: %s", &l.first, &l.letter, &l.text)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			arr = append(arr, l.first)
+		*/
 	}
 	return arr
 }
 
 func part1(filename string) int {
 	in := parseInput(filename)
-	fmt.Println(in)
+	for _, row := range in {
+		for _, item := range row {
+			fmt.Print(string(item))
+		}
+		fmt.Println()
+	}
+	// fmt.Println(in)
 	var ans int
 	return ans
 }
