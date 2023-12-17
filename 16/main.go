@@ -157,12 +157,6 @@ func energise(layout [][]byte, travellerStack []traveller) int {
 
 func part1(filename string) int {
 	in := parseInput(filename)
-	// for _, row := range in {
-	// 	for _, item := range row {
-	// 		fmt.Print(string(item))
-	// 	}
-	// 	fmt.Println()
-	// }
 	travellerStack := []traveller{
 		{x: 0, y: 0, face: east},
 	}
