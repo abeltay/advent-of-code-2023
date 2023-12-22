@@ -36,7 +36,6 @@ func parseInput(filename string) [][]byte {
 
 	var arr [][]byte
 	for _, row := range in {
-		arr = append(arr, []byte(row))
 		/*
 			var l line
 			_, err := fmt.Sscanf(row, "%d %c: %s", &l.first, &l.letter, &l.text)
@@ -44,8 +43,9 @@ func parseInput(filename string) [][]byte {
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			arr = append(arr, l.first)
+			arr = append(arr, l)
 		*/
+		arr = append(arr, []byte(row))
 	}
 	return arr
 }
