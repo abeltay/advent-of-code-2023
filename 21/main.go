@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 )
 
@@ -100,36 +99,4 @@ func part1(filename string, steps int) int {
 	return ans
 }
 
-func part2(filename string, steps int) int {
-	in := parseInput(filename)
-	var start point
-	for y := range in {
-		for x := range in[y] {
-			if in[y][x] == 'S' {
-				start = point{x: x, y: y}
-				break
-			}
-		}
-	}
-	cost := calcCost(in, start, steps)
-	min := math.MaxInt32
-	var loc int
-	for i, v := range cost[0] {
-		if v != 0 && min > v {
-			loc = i
-			min = v
-		}
-	}
-	fmt.Println(len(cost), loc, min)
-	min = math.MaxInt32
-	loc = 0
-	for i, v := range cost {
-		if v[0] != 0 && min > v[0] {
-			loc = i
-			min = v[0]
-		}
-	}
-	fmt.Println(loc, min)
-	// Solution from: https://github.com/omotto/AdventOfCode2023/blob/main/src/day21/main.go
-	return 0
-}
+// Part 2 solution from: https://github.com/omotto/AdventOfCode2023/blob/main/src/day21/main.go
