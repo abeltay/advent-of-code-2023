@@ -14,6 +14,6 @@ func TestParts(t *testing.T) {
 	}
 
 	fmt.Println("Running input.txt")
-	actualFile := "testdata/input.txt"
-	fmt.Println("Answer for part 1:", part1(actualFile))
+	// actualFile := "testdata/input.txt"
+	// fmt.Println("Answer for part 1:", part1(actualFile))
 }
