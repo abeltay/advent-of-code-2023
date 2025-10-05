@@ -1,3 +1,3 @@
 module github.com/abeltay/advent-of-code-2023
 
-go 1.24.2
+go 1.25.0
